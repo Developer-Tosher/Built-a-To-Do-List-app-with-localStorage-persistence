@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>To-Do App</title>
+</head>
+<body>
+    
+    <header>
+        <div>Personal Productivity · 2026</div>
+        <h1 >My <em>Tasks</em></h1>
+        <p >Add tasks, set priorities, track what's done.</p>
+    </header>
+
+    <main>
+
+  <!-- INPUT -->
+  <div >
+    <div>
+      <input type="text"/>
+      <button  onclick="addTask()">+ Add</button>
+    </div>
+    <div >
+      <span >Priority:</span>
+      <button   onclick="setPriority('low',this)">Low</button>
+      <button   data-p="med"  onclick="setPriority('med',this)">Medium</button>
+      <button   data-p="high" onclick="setPriority('high',this)">High</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div >
+    <div >
+      <div  >0</div>
+      <div >Total</div>
+    </div>
+    <div >
+      <div >0</div>
+      <div >Remaining</div>
+    </div>
+    <div >
+      <div >0</div>
+      <div >Done</div>
+    </div>
+    <div >
+      <div >
+        <div ></div>
+      </div>
+      <div >0% complete</div>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div >
+    <button  onclick="setFilter('all',this)">All</button>
+    <button  onclick="setFilter('active',this)">Active</button>
+    <button  onclick="setFilter('completed',this)">Completed</button>
+    <button  onclick="setFilter('high',this)">🔴 High</button>
+  </div>
+
+  <!-- LIST -->
+  <div ></div>
+  <div >
+    <div >∅</div>
+    <div >No tasks here</div>
+  </div>
+
+  <!-- BULK -->
+  <div  style="display:none">
+    <span ></span>
+    <button  onclick="clearCompleted()">Clear completed</button>
+  </div>
+
+</main>
+
+</body>
+</html>
