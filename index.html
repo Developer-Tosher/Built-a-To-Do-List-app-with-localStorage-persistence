@@ -5,76 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;1,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>To-Do App</title>
 </head>
 <body>
     
-    <header>
-        <div>Personal Productivity · 2026</div>
-        <h1 >My <em>Tasks</em></h1>
-        <p >Add tasks, set priorities, track what's done.</p>
-    </header>
+  <header>
+    <div class="header-meta">Personal Productivity · 2026</div>
+    <h1 class="header-title">My <em>Tasks</em></h1>
+    <p class="header-sub">Add tasks, set priorities, track what's done.</p>
+  </header>
 
-    <main>
+  <main>
 
-  <!-- INPUT -->
-  <div >
-    <div>
-      <input type="text"/>
-      <button  onclick="addTask()">+ Add</button>
-    </div>
-    <div >
-      <span >Priority:</span>
-      <button   onclick="setPriority('low',this)">Low</button>
-      <button   data-p="med"  onclick="setPriority('med',this)">Medium</button>
-      <button   data-p="high" onclick="setPriority('high',this)">High</button>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div >
-    <div >
-      <div  >0</div>
-      <div >Total</div>
-    </div>
-    <div >
-      <div >0</div>
-      <div >Remaining</div>
-    </div>
-    <div >
-      <div >0</div>
-      <div >Done</div>
-    </div>
-    <div >
-      <div >
-        <div ></div>
+    <!-- INPUT -->
+    <div class="input-section">
+      <div class="input-wrap">
+        <input type="text" class="task-input" id="taskInput" placeholder="What needs to be done?" maxlength="120"/>
+        <button class="add-btn" onclick="addTask()">+ Add</button>
       </div>
-      <div >0% complete</div>
+      <div class="priority-row">
+        <span class="priority-label">Priority:</span>
+        <button class="p-btn active" data-p="low"  onclick="setPriority('low',this)">Low</button>
+        <button class="p-btn"        data-p="med"  onclick="setPriority('med',this)">Medium</button>
+        <button class="p-btn"        data-p="high" onclick="setPriority('high',this)">High</button>
+      </div>
     </div>
-  </div>
 
-  <!-- FILTERS -->
-  <div >
-    <button  onclick="setFilter('all',this)">All</button>
-    <button  onclick="setFilter('active',this)">Active</button>
-    <button  onclick="setFilter('completed',this)">Completed</button>
-    <button  onclick="setFilter('high',this)">🔴 High</button>
-  </div>
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-n" id="statTotal">0</div>
+        <div class="stat-l">Total</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" id="statLeft">0</div>
+        <div class="stat-l">Remaining</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n" id="statDone">0</div>
+        <div class="stat-l">Done</div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="progress-pct" id="progressPct">0% complete</div>
+      </div>
+    </div>
 
-  <!-- LIST -->
-  <div ></div>
-  <div >
-    <div >∅</div>
-    <div >No tasks here</div>
-  </div>
+    <!-- FILTERS -->
+    <div class="filter-row">
+      <button class="f-tab active" onclick="setFilter('all',this)">All</button>
+      <button class="f-tab" onclick="setFilter('active',this)">Active</button>
+      <button class="f-tab" onclick="setFilter('completed',this)">Completed</button>
+      <button class="f-tab" onclick="setFilter('high',this)">🔴 High</button>
+    </div>
 
-  <!-- BULK -->
-  <div  style="display:none">
-    <span ></span>
-    <button  onclick="clearCompleted()">Clear completed</button>
-  </div>
+    <!-- LIST -->
+    <div class="task-list" id="taskList"></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">∅</div>
+      <div class="empty-text">No tasks here</div>
+    </div>
 
-</main>
+    <!-- BULK -->
+    <div class="bulk-row" id="bulkRow" style="display:none">
+      <span class="bulk-left" id="bulkLabel"></span>
+      <button class="clear-btn" onclick="clearCompleted()">Clear completed</button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>S<span>.</span>TOSHER</div>
+    <span>© 2026 Sohrab Hossain Tosher. All rights reserved.</span>
+  </footer>
 
 </body>
 </html>
