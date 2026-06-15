@@ -1,4 +1,8 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
 :root {
   --cream: #F7F3ED;
@@ -15,6 +19,7 @@
   --serif: 'Fraunces', Georgia, serif;
   --mono: 'IBM Plex Mono', monospace;
   --sans: 'IBM Plex Sans', sans-serif;
+  --c1: #C84B2F;
 }
 
 html { scroll-behavior: smooth; }
@@ -331,6 +336,14 @@ main {
   text-transform: uppercase;
 }
 .clear-btn:hover { color: var(--accent); }
+
+.logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--c1); }
+
 
 /* ── RESPONSIVE ── */
 @media (max-width: 480px) {
